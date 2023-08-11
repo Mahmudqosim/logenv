@@ -28,7 +28,7 @@ const User = g.model('User', {
   posts: g.relation(() => Post).list().optional()
 })
 
-const Post = g.model('Project', {
+const Post = g.model('Post', {
   title: g.string().length({ min: 3, max: 100 }).search(),
   description: g.string().length({ max: 500 }).search(),
   image: g.url().list(),
