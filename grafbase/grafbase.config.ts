@@ -21,7 +21,6 @@ const comment = g.model('Comment', {
 const User = g.model('User', {
   name: g.string().length({ min: 2, max: 21 }),
   email: g.email().unique(),
-  avatar: g.url().resolver('user/gravatar'),
   bio: g.string().length({ min: 10, max: 250 }).optional(),
   portfolioUrl: g.url().optional(),
   githubUrl: g.url().optional(),
@@ -32,7 +31,7 @@ const User = g.model('User', {
 const Post = g.model('Project', {
   title: g.string().length({ min: 3, max: 100 }).search(),
   description: g.string().length({ max: 500 }).search(),
-  image: g.url(),
+  image: g.url().list(),
   createdBy: g.relation(() => User)
 })
 
